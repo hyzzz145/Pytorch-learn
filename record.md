@@ -1,0 +1,21 @@
+# pytorch 学习记录
+
+- `torch`
+  - `tensor(list)`
+  - `from_numpy(array)`
+  - `ones_like(tensor)`
+  - `rand_like(tensor,dtype=torch.float)`
+  - `rand(shape)`
+  - `ones(shape)`
+  - `zeros(shape)`
+  - `type:tensor`
+    - `shape`
+    - `dtype`
+    - `device`
+    - `to(device)`
+    - `mul(tensor)`：等价于 tensor * tensor （注意，不是矩阵点乘，而是位置相乘）
+    - `matmul(tensor.T)`：矩阵乘法，等价 tensor @ tensor.T
+    - 带有‘_’后缀的是就地操作。如x.copy_(y)、x.t_()，会改变x
+    - `numpy` 返回 np 类型，且共用一个内存
+  - `device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else 'cpu'`:设备尽量 gpu
+  - `cat([tensor,tensor,tensor],dim=1)`:把张量连起来，且在一维方向（即column维），从 0 维开始数
